@@ -68,8 +68,8 @@ const slice = createSlice({
   name: "legislation",
   initialState,
   reducers: {
-    startLoading: (state) => {
-      state.isLoading = true;
+    startLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
     },
     hasError: (state, action: PayloadAction<boolean>) => {
       state.error = action.payload;
@@ -103,7 +103,7 @@ const {
 
 export const getBills =
   (offset: number, status: string) => async (dispatch) => {
-    dispatch(startLoading);
+    dispatch(startLoading(true));
     const limit: number = 20;
     try {
       LegislationApi.getPaginated(limit, offset, status).then((response) =>

@@ -93,7 +93,6 @@ const Bill = ({ bill, isFavorite, showModal }: IProps) => {
         </List>
       </TableCell>
       <TableCell>
-        {" "}
         {!isFavorite ? (
           <IconButton
             color="secondary"

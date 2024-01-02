@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.fe4f2165.js",
-    "index.html": "/index.html",
-    "main.fe4f2165.js.map": "/static/js/main.fe4f2165.js.map"
+    "main.js": "/propylon-technical-assessment/static/js/main.fe4f2165.js",
+    "index.html": "/propylon-technical-assessment/index.html",
+    "main.fe4f2165.js.map": "/propylon-technical-assessment/static/js/main.fe4f2165.js.map"
   },
   "entrypoints": [
     "static/js/main.fe4f2165.js"

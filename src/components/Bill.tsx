@@ -1,6 +1,8 @@
 import React from "react";
 import { useAppDispatch } from "../store/hooks.ts";
 import {
+  Tooltip,
+  Button,
   TableRow,
   TableCell,
   IconButton,
@@ -94,28 +96,39 @@ const Bill = ({ bill, isFavorite, showModal }: IProps) => {
       </TableCell>
       <TableCell>
         {!isFavorite ? (
-          <IconButton
-            color="secondary"
-            aria-label="add to favorites"
-            onClick={addToFavorites}
-            size={"small"}
-          >
-            <Favorite />
-          </IconButton>
+          <Tooltip title="Add to Favorites" arrow>
+            <IconButton
+              color="primary"
+              aria-label="add to favorites"
+              onClick={addToFavorites}
+              size={"small"}
+            >
+              <Favorite />
+            </IconButton>
+          </Tooltip>
         ) : (
-          <IconButton
-            aria-label="remove favorite"
-            onClick={removeFromFavorites}
-            size={"small"}
-          >
-            <Favorite />
-          </IconButton>
+          <Tooltip title="Remove from Favorites" arrow>
+            <IconButton
+              aria-label="remove favorite"
+              onClick={removeFromFavorites}
+              size={"small"}
+            >
+              <Favorite />
+            </IconButton>
+          </Tooltip>
         )}
       </TableCell>
       <TableCell>
-        <IconButton aria-label="Preview" onClick={showModal} size={"small"}>
-          <Preview />
-        </IconButton>
+        <Tooltip title="Show Details" arrow>
+          <IconButton
+            color="primary"
+            aria-label="Preview"
+            onClick={showModal}
+            size={"small"}
+          >
+            <Preview />
+          </IconButton>
+        </Tooltip>
       </TableCell>
     </TableRow>
   );

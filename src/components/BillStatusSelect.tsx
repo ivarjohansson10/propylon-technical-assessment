@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
+
 
 /* -----------------------------------
  *
@@ -42,6 +46,7 @@ const BillStatusSelect = ({ handleChange }: IProps) => {
           label="Bill Status"
           onChange={(event) => change(event)}
         >
+          <MenuItem value={""}>No Filter</MenuItem>
           <MenuItem value={"Defeated"}>Defeated</MenuItem>
           <MenuItem value={"Enacted"}>Enacted</MenuItem>
           <MenuItem value={"Lapsed"}>Lapsed</MenuItem>

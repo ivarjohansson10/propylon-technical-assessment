@@ -7,7 +7,7 @@ import {
   List,
   ListItem,
   ListItemText,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
   addBillToFavorites,
   removeBillFromFavorites,

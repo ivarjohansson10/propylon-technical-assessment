@@ -63,7 +63,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function BillList({ bills }: IProps) {
+const BillList = ({ bills }: IProps) => {
   const placeholder: IBillDetails = {
     billNo: 0,
     billType: "",
@@ -73,6 +73,8 @@ function BillList({ bills }: IProps) {
     longTitleEn: "",
     longTitleGa: "",
   };
+
+  const { favorites } = useAppSelector((state) => state.legislation);
 
   const [selectedBill, setSelectedBill] = useState(placeholder);
   const [open, setOpen] = useState(false);
@@ -86,7 +88,6 @@ function BillList({ bills }: IProps) {
     setOpen(false);
   };
 
-  const { favorites } = useAppSelector((state) => state.legislation);
   const isFavorite = (bill: IBillDetails) =>
     favorites.find((favorite) => favorite.bill.uri === bill.uri) ? true : false;
 
@@ -107,6 +108,6 @@ function BillList({ bills }: IProps) {
       />
     </TableBody>
   );
-}
+};
 
 export default BillList;

@@ -10,14 +10,15 @@ const Api = axios.create({
 });
 
 export const LegislationApi = {
+  
   async getPaginated(limit: number, offset: number, status: string) {
 
     const params = {
       limit: limit,
       skip: offset,
-    }
+    };
 
-    if(status) params['bill_status'] = status;
+    if (status) params["bill_status"] = status;
 
     const response = await Api.get("legislation", {
       params: params,
@@ -29,6 +30,7 @@ export const LegislationApi = {
   },
 
   async getById(id: string) {
+
     const response = await Api.get("legislation", {
       params: {
         bill_id: id,

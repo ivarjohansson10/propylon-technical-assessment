@@ -21,7 +21,7 @@ import {
  *
  * -------------------------------- */
 
-function BillTable() {
+const BillTable = () => {
   const dispatch = useAppDispatch();
 
   const { bills, isLoading, favorites } = useAppSelector(
@@ -33,27 +33,27 @@ function BillTable() {
   const [billStatus, setBillStatus] = React.useState("");
   const [currentTabIndex, setCurrentTabIndex] = React.useState(0);
 
-  const handleTabChange = (e, tabIndex) => {
-    setCurrentTabIndex(tabIndex);
-  };
-
-  function TabPanel({ children }) {
-    return <div>{children}</div>;
-  }
-
   useEffect(() => {
     dispatch(getBills(offset, billStatus));
   }, [offset, billStatus, dispatch]);
 
-  function handlePrevClick() {
+  const handleTabChange = (e, tabIndex) => {
+    setCurrentTabIndex(tabIndex);
+    setPage(1);
+    setOffset(0);
+  };
+
+  const TabPanel = ({ children }) => <div>{children}</div>;
+
+  const handlePrevClick = () => {
     setPage(page - 1);
     setOffset(offset - 20);
-  }
+  };
 
-  function handleNextClick() {
+  const handleNextClick = () => {
     setPage(page + 1);
     setOffset(offset + 20);
-  }
+  };
 
   const onHandleChange = (type) => {
     setBillStatus(type);
@@ -71,7 +71,12 @@ function BillTable() {
         </Button>
         <Button disabled>{page}</Button>
         <TableCell>
-          <Button onClick={handleNextClick} disabled={!bills.length}>Next</Button>
+          <Button
+            onClick={handleNextClick}
+            disabled={!bills.length || currentTabIndex === 1}
+          >
+            Next
+          </Button>
         </TableCell>
       </Card>
 
@@ -83,7 +88,7 @@ function BillTable() {
       </Card>
 
       <Fade in={!isLoading}>
-        <Table sx={{ width: 600 }}>
+        <Table>
           <TableHead>
             <TableRow>
               <TableCell>Bill number</TableCell>
@@ -101,6 +106,6 @@ function BillTable() {
       </Fade>
     </Card>
   );
-}
+};
 
 export default BillTable;

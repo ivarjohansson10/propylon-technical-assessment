@@ -53,16 +53,16 @@ interface IProps {
  *
  * -------------------------------- */
 
-function BillModal({ bill, isOpen, closeModal }: IProps) {
+const BillModal = ({ bill, isOpen, closeModal }: IProps) => {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
   const handleTabChange = (e, tabIndex) => {
     setCurrentTabIndex(tabIndex);
   };
 
-  function TabPanel({ children }) {
-    return <Typography sx={{ p: 2 }}>{parse(children)}</Typography>;
-  }
+  const TabPanel = ({ children }) => (
+    <Typography sx={{ p: 2 }}>{parse(children)}</Typography>
+  );
 
   return (
     <div>
@@ -93,6 +93,6 @@ function BillModal({ bill, isOpen, closeModal }: IProps) {
       </Modal>
     </div>
   );
-}
+};
 
 export default BillModal;

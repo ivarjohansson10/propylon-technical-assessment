@@ -65,7 +65,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Bill({ bill, isFavorite, showModal }: IProps) {
+const Bill = ({ bill, isFavorite, showModal }: IProps) => {
   const dispatch = useAppDispatch();
 
   const addToFavorites = () => {
@@ -114,16 +114,12 @@ function Bill({ bill, isFavorite, showModal }: IProps) {
         )}
       </TableCell>
       <TableCell>
-          <IconButton
-            aria-label="Preview"
-            onClick={showModal}
-            size={"small"}
-          >
-            <Preview />
-          </IconButton>
+        <IconButton aria-label="Preview" onClick={showModal} size={"small"}>
+          <Preview />
+        </IconButton>
       </TableCell>
     </TableRow>
   );
-}
+};
 
 export default Bill;

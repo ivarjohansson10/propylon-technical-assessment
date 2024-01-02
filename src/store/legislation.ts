@@ -101,17 +101,18 @@ const {
   hasError,
 } = slice.actions;
 
-export const getBills = (offset: number, status: string) => async (dispatch) => {
-  dispatch(startLoading);
-  const limit: number = 20;
-  try {
-    LegislationApi.getPaginated(limit, offset, status).then((response) =>
-      dispatch(billsSuccess(response)),
-    );
-  } catch (e) {
-    dispatch(hasError(e.message));
-  }
-};
+export const getBills =
+  (offset: number, status: string) => async (dispatch) => {
+    dispatch(startLoading);
+    const limit: number = 20;
+    try {
+      LegislationApi.getPaginated(limit, offset, status).then((response) =>
+        dispatch(billsSuccess(response)),
+      );
+    } catch (e) {
+      dispatch(hasError(e.message));
+    }
+  };
 
 export const addBillToFavorites = (id: string) => async (dispatch) => {
   try {

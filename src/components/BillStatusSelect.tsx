@@ -21,7 +21,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function BillStatusSelect({ handleChange }: IProps) {
+const BillStatusSelect = ({ handleChange }: IProps) => {
   const [type, setType] = React.useState("");
 
   useEffect(() => {
@@ -52,6 +52,6 @@ function BillStatusSelect({ handleChange }: IProps) {
       </FormControl>
     </Box>
   );
-}
+};
 
 export default BillStatusSelect;

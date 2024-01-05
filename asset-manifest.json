@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/propylon-technical-assessment/static/js/main.fe4f2165.js",
+    "main.js": "/propylon-technical-assessment/static/js/main.a86df0b2.js",
     "index.html": "/propylon-technical-assessment/index.html",
-    "main.fe4f2165.js.map": "/propylon-technical-assessment/static/js/main.fe4f2165.js.map"
+    "main.a86df0b2.js.map": "/propylon-technical-assessment/static/js/main.a86df0b2.js.map"
   },
   "entrypoints": [
-    "static/js/main.fe4f2165.js"
+    "static/js/main.a86df0b2.js"
   ]
 }
